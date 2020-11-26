@@ -5,7 +5,7 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
 import Home from '../../feature/home';
-import Choosen from '../../feature/choosen';
+import Liked from '../../feature/liked';
 
 const Tab = createBottomTabNavigator();
 
@@ -14,7 +14,7 @@ export default function NavigationRoute() {
     <NavigationContainer>
       <Tab.Navigator {...tabConfig}>
         <Tab.Screen name="Home" component={Home} />
-        <Tab.Screen name="Choosen" component={Choosen} />
+        <Tab.Screen name="Liked" component={Liked} />
       </Tab.Navigator>
     </NavigationContainer>
   );
@@ -27,7 +27,7 @@ const tabConfig = {
 
       if (route.name === 'Home') {
         iconName = focused ? 'ios-images' : 'ios-images-outline';
-      } else if (route.name === 'Choosen') {
+      } else if (route.name === 'Liked') {
         iconName = focused ? 'ios-heart' : 'ios-heart-outline';
       }
 
