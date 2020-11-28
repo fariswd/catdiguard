@@ -4,7 +4,7 @@ import {useReactiveVar} from '@apollo/client';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-import {catListVar} from '../../../config/apollo/cache';
+import {catListVar} from '../config/apollo/cache';
 
 type Props = {
   item: Item;
