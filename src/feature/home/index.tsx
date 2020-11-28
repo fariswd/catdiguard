@@ -2,10 +2,9 @@ import React, {useEffect, useState} from 'react';
 import {View, Text, Image, TouchableOpacity, ScrollView} from 'react-native';
 import {gql, useQuery} from '@apollo/client';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import {WIDTH_SCREEN} from '../../helpers';
 import client from '../../config/apollo/client';
 import {FlatList} from 'react-native-gesture-handler';
-import HeartButton from './components/HeartButton';
+import MediaContainer from '../../components/MediaContainer';
 
 const GET_CAT = gql`
   query GET_CAT {
@@ -19,7 +18,7 @@ const GET_CAT = gql`
   }
 `;
 
-export default function HomeScreen() {
+export default function HomeScreen({navigation}: any) {
   const [cats, setCats] = useState([]);
   const [page, setPage] = useState(1);
   const [globalLoading, setGlobalLoading] = useState(false);
@@ -56,55 +55,9 @@ export default function HomeScreen() {
     <View>
       <FlatList
         data={cats}
-        renderItem={({item, index}: any) => {
-          return (
-            <View key={`cat-${index}`}>
-              <View
-                style={{
-                  flexDirection: 'row',
-                  marginHorizontal: 8,
-                  marginBottom: 8,
-                  marginTop: 15,
-                }}>
-                <View
-                  style={{
-                    borderRadius: 20,
-                    overflow: 'hidden',
-                  }}>
-                  <Image
-                    source={{uri: item.url}}
-                    style={{width: 40, height: 40}}
-                    resizeMode="cover"
-                  />
-                </View>
-                <View
-                  style={{
-                    justifyContent: 'center',
-                    flex: 1,
-                    paddingHorizontal: 8,
-                  }}>
-                  <Text>{item.id}</Text>
-                </View>
-                <View style={{justifyContent: 'center'}}>
-                  <HeartButton item={item} />
-                  {/* <Ionicons name="ellipsis-vertical" size={20} color="#666" /> */}
-                </View>
-              </View>
-              <Image
-                source={{uri: item.url}}
-                style={{width: WIDTH_SCREEN, height: WIDTH_SCREEN}}
-                resizeMode="cover"
-              />
-              <View
-                style={{
-                  flexDirection: 'row',
-                  justifyContent: 'flex-end',
-                  paddingHorizontal: 8,
-                  paddingVertical: 10,
-                }}></View>
-            </View>
-          );
-        }}
+        renderItem={(renderItem: any) => (
+          <MediaContainer {...renderItem} navigation={navigation} />
+        )}
         onEndReached={() => loadMore()}
       />
     </View>
