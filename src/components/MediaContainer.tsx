@@ -1,7 +1,10 @@
-import React from 'react';
+import React, {useRef} from 'react';
 import {View, Text, Image, TouchableOpacity} from 'react-native';
+import Ionicons from 'react-native-vector-icons/Ionicons';
+import ViewShot from 'react-native-view-shot';
 
 import HeartButton from '../components/HeartButton';
+import DownloadButton from '../components/DownloadButton';
 
 import {WIDTH_SCREEN} from '../helpers';
 
@@ -11,6 +14,7 @@ export default function MediaContainer({
   disableDetail,
   navigation,
 }: any) {
+  const imageRef = useRef();
   return (
     <View key={`cat-${index}`}>
       <View
@@ -44,22 +48,31 @@ export default function MediaContainer({
           </TouchableOpacity>
         </View>
         <View style={{justifyContent: 'center'}}>
-          <HeartButton item={item} />
-          {/* <Ionicons name="ellipsis-vertical" size={20} color="#666" /> */}
+          {/* <Ionicons name="ellipsis-vertical" size={24} color="#666" /> */}
         </View>
       </View>
-      <Image
-        source={{uri: item.url}}
-        style={{width: WIDTH_SCREEN, height: WIDTH_SCREEN}}
-        resizeMode="cover"
-      />
+      <ViewShot ref={imageRef}>
+        <Image
+          source={{uri: item.url}}
+          style={{width: WIDTH_SCREEN, height: WIDTH_SCREEN}}
+          resizeMode="cover"
+        />
+      </ViewShot>
       <View
         style={{
           flexDirection: 'row',
-          justifyContent: 'flex-end',
+          justifyContent: 'space-between',
           paddingHorizontal: 8,
-          paddingVertical: 10,
-        }}></View>
+          paddingTop: 6,
+          paddingBottom: 10,
+        }}>
+        <View style={{justifyContent: 'flex-start'}}>
+          <DownloadButton imageRef={imageRef} />
+        </View>
+        <View style={{justifyContent: 'center'}}>
+          <HeartButton item={item} />
+        </View>
+      </View>
     </View>
   );
 }

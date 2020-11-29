@@ -51,8 +51,8 @@ export default function HeartButton(props: Props) {
     <TouchableOpacity onPress={() => loveButton()}>
       <Ionicons
         name={isLiked(catLists) ? 'heart' : 'heart-outline'}
-        size={34}
         color={isLiked(catLists) ? 'tomato' : '#666'}
+        size={30}
       />
     </TouchableOpacity>
   );
