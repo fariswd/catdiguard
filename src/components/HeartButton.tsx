@@ -17,11 +17,9 @@ type Item = {
 
 export default function HeartButton(props: Props) {
   const {item} = props;
-  const [loading, setLoading] = useState(false);
   const catLists: any = useReactiveVar(catListVar);
 
   const loveButton = async () => {
-    setLoading(true);
     const isOnList = isLiked(catLists);
     if (!isOnList) {
       const newCatList: Item[] = [item, ...catLists];
@@ -30,22 +28,16 @@ export default function HeartButton(props: Props) {
         'CAT_LIST',
         JSON.stringify([item, ...catLists]),
       );
-      setLoading(false);
     } else {
       const newCatList = catLists.filter((c: {id: string}) => c.id != item.id);
       await catListVar(newCatList);
       await AsyncStorage.setItem('CAT_LIST', JSON.stringify(newCatList));
-      setLoading(false);
     }
   };
 
   const isLiked = (cats: []) => {
-    return cats.filter((c: {id: string}) => item.id == c.id).length > 0;
+    return cats?.filter((c: {id: string}) => item.id == c.id).length > 0;
   };
-
-  if (loading) {
-    <Text>Loading</Text>;
-  }
 
   return (
     <TouchableOpacity onPress={() => loveButton()}>
