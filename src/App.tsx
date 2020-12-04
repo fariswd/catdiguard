@@ -1,12 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {
-  SafeAreaView,
-  StyleSheet,
-  ScrollView,
-  View,
-  Text,
-  StatusBar,
-} from 'react-native';
+import {View, Text, StatusBar} from 'react-native';
 import NavigationRoute from './config/route';
 import {ApolloProvider} from '@apollo/client';
 

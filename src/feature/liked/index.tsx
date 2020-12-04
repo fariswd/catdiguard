@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, FlatList, Image} from 'react-native';
+import {View, Text, FlatList} from 'react-native';
 import {useReactiveVar} from '@apollo/client';
 
 import {catListVar} from '../../config/apollo/cache';

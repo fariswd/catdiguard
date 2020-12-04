@@ -52,7 +52,7 @@ export default function HeartButton(props: Props) {
       <Ionicons
         name={isLiked(catLists) ? 'heart' : 'heart-outline'}
         color={isLiked(catLists) ? 'tomato' : '#666'}
-        size={30}
+        size={28}
       />
     </TouchableOpacity>
   );
