@@ -5,6 +5,7 @@ import ViewShot from 'react-native-view-shot';
 
 import HeartButton from '../components/HeartButton';
 import DownloadButton from '../components/DownloadButton';
+import ShareButton from './ShareButton';
 
 import {WIDTH_SCREEN} from '../helpers';
 
@@ -41,17 +42,18 @@ export default function MediaContainer({
             flex: 1,
             paddingHorizontal: 8,
           }}>
-          <TouchableOpacity
-            onPress={() => navigation.navigate('Detail', {item: item})}
-            disabled={disableDetail}>
-            <Text>{item.id}</Text>
-          </TouchableOpacity>
+          <Text>{item.id}</Text>
         </View>
-        <View style={{justifyContent: 'center'}}>
-          {/* <Ionicons name="ellipsis-vertical" size={24} color="#666" /> */}
-        </View>
+        <TouchableOpacity
+          onPress={() => navigation.navigate('Detail', {item: item})}
+          disabled={disableDetail}
+          style={{justifyContent: 'center'}}>
+          <Ionicons name="information-circle-outline" size={28} color="#666" />
+        </TouchableOpacity>
       </View>
-      <ViewShot ref={imageRef}>
+      <ViewShot
+        //@ts-ignore
+        ref={imageRef}>
         <Image
           source={{uri: item.url}}
           style={{width: WIDTH_SCREEN, height: WIDTH_SCREEN}}
@@ -62,12 +64,18 @@ export default function MediaContainer({
         style={{
           flexDirection: 'row',
           justifyContent: 'space-between',
-          paddingHorizontal: 8,
+          paddingHorizontal: 10,
           paddingTop: 6,
           paddingBottom: 10,
         }}>
-        <View style={{justifyContent: 'flex-start'}}>
-          <DownloadButton imageRef={imageRef} />
+        <View style={{justifyContent: 'flex-start', flexDirection: 'row'}}>
+          <View>
+            <DownloadButton imageRef={imageRef} />
+          </View>
+          <View style={{width: 4}} />
+          <View>
+            <ShareButton imageRef={imageRef} />
+          </View>
         </View>
         <View style={{justifyContent: 'center'}}>
           <HeartButton item={item} />

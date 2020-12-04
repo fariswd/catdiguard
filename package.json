@@ -30,6 +30,7 @@
     "react-native-reanimated": "^1.13.2",
     "react-native-safe-area-context": "^3.1.9",
     "react-native-screens": "^2.15.0",
+    "react-native-share": "^4.1.0",
     "react-native-vector-icons": "^7.1.0",
     "react-native-view-shot": "^3.1.2"
   },
@@ -59,6 +60,9 @@
       "jsx",
       "json",
       "node"
+    ],
+    "setupFiles": [
+      "<rootDir>/__mocks__/modulesMock.js"
     ]
   }
 }
