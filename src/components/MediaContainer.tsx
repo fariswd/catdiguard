@@ -1,7 +1,8 @@
-import React, {useRef} from 'react';
+import React, {useRef, useState} from 'react';
 import {View, Text, Image, TouchableOpacity} from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import ViewShot from 'react-native-view-shot';
+import FastImage from 'react-native-fast-image';
 
 import HeartButton from '../components/HeartButton';
 import DownloadButton from '../components/DownloadButton';
@@ -30,10 +31,10 @@ export default function MediaContainer({
             borderRadius: 20,
             overflow: 'hidden',
           }}>
-          <Image
+          <FastImage
             source={{uri: item.url}}
             style={{width: 40, height: 40}}
-            resizeMode="cover"
+            resizeMode={FastImage.resizeMode.cover}
           />
         </View>
         <View
@@ -54,10 +55,10 @@ export default function MediaContainer({
       <ViewShot
         //@ts-ignore
         ref={imageRef}>
-        <Image
-          source={{uri: item.url}}
+        <FastImage
+          source={{uri: item.url, priority: FastImage.priority.normal}}
           style={{width: WIDTH_SCREEN, height: WIDTH_SCREEN}}
-          resizeMode="cover"
+          resizeMode={FastImage.resizeMode.cover}
         />
       </ViewShot>
       <View
