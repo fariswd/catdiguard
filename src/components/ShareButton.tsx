@@ -5,7 +5,11 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import {captureRef} from 'react-native-view-shot';
 import Share from 'react-native-share';
 
-export default function ShareButton(props: any) {
+type Props = {
+  imageRef: any;
+};
+
+export default function ShareButton(props: Props) {
   const shareImage = async () => {
     try {
       const base64 = await captureRef(props.imageRef, {

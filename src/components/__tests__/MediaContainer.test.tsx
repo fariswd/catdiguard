@@ -11,12 +11,13 @@ describe('Show Media Container Component', () => {
       .create(
         <MediaContainer
           item={{
-            url: '',
-            id: '',
+            id: '60m',
+            url: 'https://cdn2.thecatapi.com/images/60m.jpg',
           }}
+          index={1}
           key={`detail${1}`}
           navigation={() => jest.fn()}
-          disableDetail
+          disableDetail={true}
         />,
       )
       .toJSON();

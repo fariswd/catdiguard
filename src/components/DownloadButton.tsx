@@ -3,7 +3,11 @@ import {TouchableOpacity, PermissionsAndroid, ToastAndroid} from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import CameraRoll from '@react-native-community/cameraroll';
 
-export default function DownloadButton(props: any) {
+type Props = {
+  imageRef: any;
+};
+
+export default function DownloadButton(props: Props) {
   const checkPermission = async () => {
     const permission = PermissionsAndroid.PERMISSIONS.WRITE_EXTERNAL_STORAGE;
     const hasPermission = await PermissionsAndroid.check(permission);

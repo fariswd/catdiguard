@@ -1,12 +1,12 @@
 import React from 'react';
-import ShareButton from '../ShareButton';
+import DownloadButton from '../DownloadButton';
 
 import renderer from 'react-test-renderer';
 
-describe('Share Button Component', () => {
+describe('Download Button Component', () => {
   it('Should render without crashing', () => {
     const rendered = renderer
-      .create(<ShareButton imageRef="imageRef" />)
+      .create(<DownloadButton imageRef="imageRef" />)
       .toJSON();
     expect(rendered).toMatchSnapshot();
   });
