@@ -1,4 +1,4 @@
-package com.catdiguard;
+package com.fariswd.nyaaaaaaaaw;
 
 import com.facebook.react.ReactActivity;
 

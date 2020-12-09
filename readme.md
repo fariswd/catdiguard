@@ -1,10 +1,14 @@
-# catdiguard
+# Nyaaaaaaaaw
 
-Finding your animal spirit
+Nyaaaaaawww. (Rate me on google play store!!!)
+
+## Rate me on Playstore
+
+[<img src="https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png" height="50">](https://play.google.com/store/apps/details?id=com.fariswd.nyaaaaaaaaw 'Nyaaaaaaaaw')
 
 ## ss
 
-<img src="https://raw.githubusercontent.com/fariswd/catdiguard/main/ss.png" height="300">
+<img src="https://raw.githubusercontent.com/fariswd/catdiguard/main/ss.png" height="300"><img src="https://raw.githubusercontent.com/fariswd/catdiguard/main/ss2.png" height="300">
 
 ## compile android?
 
