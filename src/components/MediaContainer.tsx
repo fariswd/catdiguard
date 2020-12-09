@@ -1,5 +1,5 @@
-import React, {useRef, useState} from 'react';
-import {View, Text, Image, TouchableOpacity} from 'react-native';
+import React, {useRef} from 'react';
+import {View, Text, TouchableOpacity} from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import ViewShot from 'react-native-view-shot';
 import FastImage from 'react-native-fast-image';
@@ -10,12 +10,24 @@ import ShareButton from './ShareButton';
 
 import {WIDTH_SCREEN} from '../helpers';
 
+type Item = {
+  id: string;
+  url: string;
+};
+
+type Props = {
+  item: Item;
+  index?: string;
+  disableDetail?: boolean;
+  navigation?: any;
+};
+
 export default function MediaContainer({
   item,
   index,
   disableDetail,
   navigation,
-}: any) {
+}: Props) {
   const imageRef = useRef();
   return (
     <View key={`cat-${index}`}>
@@ -46,7 +58,10 @@ export default function MediaContainer({
           <Text>{item.id}</Text>
         </View>
         <TouchableOpacity
-          onPress={() => navigation.navigate('Detail', {item: item})}
+          onPress={() => {
+            console.log(item, '-item');
+            navigation.navigate('Detail', {item: item});
+          }}
           disabled={disableDetail}
           style={{justifyContent: 'center'}}>
           <Ionicons name="information-circle-outline" size={28} color="#666" />

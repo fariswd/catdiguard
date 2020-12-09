@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Share Button Component Should render without crashing 1`] = `
+exports[`Download Button Component Should render without crashing 1`] = `
 <View
   accessible={true}
   focusable={true}
@@ -35,7 +35,7 @@ exports[`Share Button Component Should render without crashing 1`] = `
       ]
     }
   >
-    
+    
   </Text>
 </View>
 `;

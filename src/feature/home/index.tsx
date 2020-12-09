@@ -17,10 +17,13 @@ const GET_CAT = gql`
   }
 `;
 
-export default function HomeScreen({navigation}: any) {
+type Props = {
+  navigation: any;
+};
+
+export default function HomeScreen({navigation}: Props) {
   const [cats, setCats] = useState([]);
   const [page, setPage] = useState(1);
-  const [globalLoading, setGlobalLoading] = useState(false);
 
   useEffect(() => {
     client

@@ -5,7 +5,11 @@ import {useReactiveVar} from '@apollo/client';
 import {catListVar} from '../../config/apollo/cache';
 import MediaContainer from '../../components/MediaContainer';
 
-export default function Liked({navigation}: any) {
+type Props = {
+  navigation: any;
+};
+
+export default function Liked({navigation}: Props) {
   const cats = useReactiveVar(catListVar);
 
   if (cats.length == 0) {
